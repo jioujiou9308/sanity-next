@@ -7,6 +7,7 @@ export async function getServerSideProps() {
 
   const EVENTS_QUERY = `*[_type == "event" && defined(slug.current)]{_id, name, slug, date}|order(date desc)`;
   const events = await client.fetch(EVENTS_QUERY);
+  
   // Pass data to the page via props
   return {
     props: {
